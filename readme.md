@@ -1,3 +1,10 @@
+### Содержание
+
+* [Цель лабораторной работы](#цель)
+* [Задание №1. Анализ HTTP-запросов](#задание-1-анализ-http-запросов)
+* [Задание №2. Составление HTTP-запросов](#задание-2-составление-http-запросов)
+* [Задание №3. Дополнительное задание. HTTP_Quest TIP](#задание-3-дополнительное-задание-http_quest-tip)
+
 # Лабораторная работа №1. Основы HTTP
 ### Цель
 
@@ -91,14 +98,14 @@ POST
 
 * Какие заголовки были отправлены в запросе?
 
-user-agent:
-Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/128.0.0.0 Safari/537.36
+`user-agent:
+Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/128.0.0.0 Safari/537.36`
 
-equest Method:
-POST
+`equest Method:
+POST`
 
-Status Code:
-200 OK
+`Status Code:
+200 OK`
 
 * Какие параметры были отправлены в запросе?
 
@@ -106,7 +113,7 @@ Status Code:
 
 * Какой код состояния был возвращен сервером?
 
-200 ok,  что означает, что пользователь успешно зашёл в систему 
+`200 ok`,  что означает, что пользователь успешно зашёл в систему 
 
 * Какие заголовки были отправлены в ответе?
 
@@ -117,25 +124,26 @@ Status Code:
 
 1. Составьте GET-запрос к серверу по адресу http://sandbox.com, указав в заголовке User-Agent ваше имя и фамилию.
 
-GET / HTTP/1.1
+`GET / HTTP/1.1
 Host: sandbox.com
-User-Agent: Tatiana Ivanenco
+User-Agent: Tatiana Ivanenco`
 
 2. Составьте POST-запрос к серверу по адресу http://sandbox.com/cars, указав в теле запроса следующие параметры:
 * make: Toyota
 * model: Corolla
 * year: 2020
 
-POST /cars HTTP/1.1
+`POST /cars HTTP/1.1
 Host: sandbox.com
 Content-Type: application/x-www-form-urlencoded
-User-Agent: Tatiana Ivanenco
+User-Agent: Tatiana Ivanenco`
 
-make=Toyota&model=Corolla&year=2020
+`make=Toyota&model=Corolla&year=2020`
 
 
 3. Составьте PUT-запрос к серверу по адресу http://sandbox.com/cars/1, указав в заголовке User-Agent ваше имя и фамилию, в заголовке Content-Type значение application/json и в теле запроса следующие параметры: json { "make": "Toyota", "model": "Corolla", "year": 2021 }
 
+```
 PUT /cars/1 HTTP/1.1
 Host: sandbox.com
 Content-Type: application/json
@@ -146,10 +154,10 @@ User-Agent: Tatiana Ivanenco
   "model": "Corolla",
   "year": 2021
 }
-
+```
 
 4. Напишите один из возможных вариантов ответа сервера следующий запрос. http POST /cars HTTP/1.1 Host: sandbox.com Content-Type: application/json User-Agent: John Doe model=Corolla&make=Toyota&year=2020 Предположите ситуации, когда сервер может вернуть HTTP-коды состояния 200, 201, 400, 401, 403, 404, 500.
-
+```
 HTTP/1.1 201 Created
 Content-Type: application/json
 Location: /cars/1
@@ -159,26 +167,27 @@ Location: /cars/1
   "model": "Corolla",
   "year": 2020
 }
+```
 
-1. 200 OK
+1. `200 OK`
 Сервер успешно обработал запрос. 
 
-2. 201 Created
+2. `201 Created`
 Сервер успешно создал новый ресурс.
 
-3. 400 Bad Request
+3. `400 Bad Request`
 Сервер не может обработать запрос из-за ошибки в синтаксисе запроса. 
 
-4. 401 Unauthorized
+4. `401 Unauthorized`
 Сервер требует аутентификацию, но не получил её, либо аутентификация была неверной.
 
-5. 403 Forbidden
+5. `403 Forbidden`
 Сервер понял запрос, но отказывает в его выполнении. Это может произойти, если пользователь не имеет прав доступа к определённому ресурсу.
 
-6. 404 Not Found
+6. `404 Not Found`
 Сервер не может найти запрашиваемый ресурс.
 
-7. 500 Internal Server Error
+7. `500 Internal Server Error`
 Общая ошибка сервера, возникающая, когда что-то пошло не так на стороне сервера
 
 
@@ -189,12 +198,19 @@ Host: sandbox.usm.md
 User-Agent: John Doe
 curl:
 
-curl -X POST http://sandbox.usm.md/quest -H "User-Agent: John Doe"
+
+curl -X POST http://sandbox.usm.md/quest -H "User-Agent: Ivanenco Tatiana" 
+
+![alt text](image-8.png)
 
 2. Следуйте инструкциям на сервере, выполняя их по порядку.
 
+![alt text](image-9.png)
+
 3. В конце квеста Вам будет показано секретное слово, которое Вы должны будете предоставить в отчете.
 Примечание к заданию 3:
+
+ secret: IDoOGAAnAApsNRUADEAHLUJHXA==
 
 1. Используйте инструмент curl, postman или любой другой инструмент для отправки запросов.
 2. Вы можете начинать квест заново, выполнив первый шаг.
