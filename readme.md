@@ -124,9 +124,11 @@ POST`
 
 1. Составьте GET-запрос к серверу по адресу http://sandbox.com, указав в заголовке User-Agent ваше имя и фамилию.
 
-`GET / HTTP/1.1
+```http
+GET / HTTP/1.1
 Host: sandbox.com
-User-Agent: Tatiana Ivanenco`
+User-Agent: Tatiana Ivanenco
+```
 
 2. Составьте POST-запрос к серверу по адресу http://sandbox.com/cars, указав в теле запроса следующие параметры:
 * make: Toyota
